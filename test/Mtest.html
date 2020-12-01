@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>markdown-editor</title>
+    <link rel="stylesheet" type="text/css" href="../src/asset/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"
+    ></script>
+  
+  </head>
+  <style>
+    img {
+      max-width: 100%;
+    }
+    .contains {
+      display: none;
+    }
+  </style>
+
+  <body>
+    <div id="root">
+      <textarea class="textarea"></textarea>
+      <div class="preview"></div>
+      <div class="preview contains"></div>
+    </div>
+  </body>
+  <script>
+    var textarea = document.querySelector("textarea");
+    var prefill = document.querySelector(".contains");
+    var pre = document.querySelector(".preview");
+    textarea.addEventListener("input", (e) => {
+      var value = e.target.value;
+      var html
+      while ((regRes = /(\$\$)((.*?\n?)+?)\1/gm.exec(value))) {
+        console.log(regRes[2]);
+       html = katex.renderToString(String.raw`${regRes[2]}`, {
+          throwOnError: false,
+        });
+        value = value.replace(regRes[0], `<p>${html}</p>`)
+      }
+       value   += katex.renderToString(String.raw`\displaystyle
+    \frac{1}{
+        \Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{
+        \frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {
+        1+\frac{e^{-6\pi}}
+        {1+\frac{e^{-8\pi}}
+         {1+\cdots} }
+        }
+    }`, {
+          throwOnError: false,
+        });
+      console.log(html);
+      pre.innerHTML=value;
+    });
+  </script>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>markdown-editor</title>
+    <link rel="stylesheet" href="./asset/styles/default.css" id="styles">
+    <link rel="stylesheet" href="./asset/hljs_styles/atelier-cave-light.css" id="codeStyles">
+
+    <!-- <script src="./highlight.pack.js"></script> -->
+    <!-- <link
+    rel="stylesheet"
+    href="../asset/katex/katex.min.css"
+  /> -->
+
+</head>
+<style>
+    img {
+        max-width: 100%;
+    }
+</style>
+
+<body>
+    <div class="markdown-editor">
+      <div class="toolbar">
+        <div class="toolbar-container">
+          <ul class="toolbar-menu">
+            <li>
+              <a class="undo" title="撤销（Ctrl+Z）"
+                ><i class="iconfont icon-undo"></i
+              ></a>
+            </li>
+  
+            <li>
+              <a class="redo" title="重做（Ctrl+Y）"
+                ><i class="iconfont icon-redo"></i
+              ></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="bold" title="粗体"
+                ><i class="iconfont icon-jiacu"></i
+              ></a>
+            </li>
+  
+            <li>
+              <a class="delline" title="删除线"
+                ><i class="iconfont icon-shanchuxian1"></i
+              ></a>
+            </li>
+            <li>
+              <a class="underline" title="下划线"
+                ><i class="iconfont icon-xiahuaxian"></i
+              ></a>
+            </li>
+            <li>
+              <a class="italic" title="斜体"
+                ><i class="iconfont icon-xieti"></i
+              ></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="h1" title="标题1"><i class="iconfont icon-h2"></i></a>
+            </li>
+  
+            <li>
+              <a class="h2" title="标题2"><i class="iconfont icon-h"></i></a>
+            </li>
+  
+            <li>
+              <a class="h3" title="标题3"><i class="iconfont icon-h3"></i></a>
+            </li>
+  
+            <li>
+              <a class="h4" title="标题4"><i class="iconfont icon-h5"></i></a>
+            </li>
+  
+            <li>
+              <a class="h5" title="标题5"><i class="iconfont icon-h1"></i></a>
+            </li>
+  
+            <li>
+              <a class="h6" href="" title="标题6"
+                ><i class="iconfont icon-h4"></i
+              ></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="right" title="居右"
+                ><i class="iconfont icon-juyou"></i
+              ></a>
+            </li>
+            <li>
+              <a class="center" title="居中"
+                ><i class="iconfont icon-juzhong"></i
+              ></a>
+            </li>
+            <li>
+              <a class="none" title="两端对齐"
+                ><i class="iconfont icon-liangduanduiqi"></i
+              ></a>
+            </li>
+            <li>
+              <a class="left" title="居左"
+                ><i class="iconfont icon-juzuo"></i
+              ></a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a class="ul" title="无序列表"
+                ><i class="iconfont icon-wuxuliebiao"></i
+              ></a>
+            </li>
+            <li>
+              <a class="ol" title="有序列表"
+                ><i class="iconfont icon-youxuliebiao"></i
+              ></a>
+            </li>
+            <li>
+              <a class="code" title="代码"
+                ><i class="iconfont icon-daima"></i
+              ></a>
+            </li>
+            <li>
+              <a class="katex" title="公式"><i class="iconfont icon-zu"></i></a>
+            </li>
+            <li>
+              <select id="sel" style="width: auto; height: 16px; font-size: 10px;text-align: center;text-align-last: center;">
+                <option value="default">default</option>
+                <option value="night">night</option>
+                <option value="github">github</option>
+                <option value="newsprint">newsprint</option>
+                <option value="pixyll">pixyll</option>
+                <option value="whitey">whitey</option>
+              </select>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="layout">
+        <div class="editor-view">
+          <div class="CodeMirror-gutters">
+            <div class="CodeMirror-gutter-wrapper" style="top: -3px">
+              <div class="CodeMirror-linenumber">1</div>
+            </div>
+          </div>
+          <div class="editor-code">
+            <div class="editor-lines" contenteditable>
+              <div class="editor-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="preview"></div>
+      </div>
+    </div>
+</body>
+
+</html>

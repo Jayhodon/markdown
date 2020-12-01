@@ -1,0 +1,1 @@
+export {listObj} from './interface'

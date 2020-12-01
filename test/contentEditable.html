@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .layout {
+      width: 100%;
+      display: flex;
+      top: 50px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      overflow: hidden;
+    }
+    .preview {
+      flex: 1;
+      border: 0.0625rem solid black;
+      border-radius: 1px;
+      overflow-y: scroll;
+      border-left: transparent;
+    }
+    .editor-view {
+      flex: 1;
+      border: 0.0625rem solid black;
+      border-radius: 1px;
+      border-right: transparent;
+      padding-left: 55px;
+      overflow-y: scroll;
+    }
+    .editor-code {
+      outline: none;
+    }
+    .CodeMirror-gutters {
+      background-color: gray;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-right: 1px solid black;
+      border-top: 1px solid black;
+      width: 50px;
+      height: 100%;
+    }
+    .toolbar {
+      height: 48px;
+      border-top: 1px solid black;
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+    .editor-line {
+      width: 100%;
+      min-height: 22px;
+      font-size: 16px;
+      margin: 3px 0;
+    }
+    .texterea {
+      display: none;
+    }
+    .editor-line:focus {
+      background-color: green;
+    }
+    .editor-code:hover {
+      cursor: text;
+    }
+    .CodeMirror-gutter-wrapper {
+      height: 22px;
+      font-size: 16px;
+      margin: 3px 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="toolbar">我是工具栏</div>
+    <div class="layout">
+      <div class="editor-view">
+        <div class="CodeMirror-gutters">
+          <div class="CodeMirror-gutter-wrapper">
+            <div class="CodeMirror-linenumber">1</div>
+          </div>
+        </div>
+        <div class="editor-code" contenteditable>
+          <div class="editor-line"></div>
+        </div>
+      </div>
+      <div class="preview"></div>
+    </div>
+  </body>
+  <script>
+    //储存全局的一个变量
+    var codeLineNumber, //记录代码的函数
+      activtyElement; //记录当前活动状态的代码行
+      var codeMirrorGutters=document.querySelector('.CodeMirror-gutters')
+    var editorCode = document.querySelector(".editor-code");
+    var preview = document.querySelector(".preview");
+    var editorView = document.querySelector(".editor-view");
+    editorView.addEventListener("click", () => {
+      editorCode.focus();
+    });
+
+
+
+
+    editorCode.addEventListener("input", (e) => {
+      var _this = e.target;
+      // if(_this.target.)
+      var html = _this.innerHTML;
+      html = html
+        .replace(/<div class="editor-line">/g, "")
+        .replace(/(<\/div>)/g, "\n")
+        .trim();
+      console.log(e.target.children);
+      preview.innerHTML = html;
+
+      //创建代码行数标识
+      if (codeLineNumber !== e.target.children.length) {
+        console.log("行数变化了");
+        codeMirrorGutters.innerHTML=""
+        var count=1
+        //创建codeNumberFragement片段
+        var codeNumberFragement = document.createDocumentFragment();
+        for (let i = 0; i < e.target.children.length; i++) {
+          console.log(e.target.children[i].offsetTop);
+          //记录当前元素的offsetTop
+          var top=e.target.children[i].offsetTop
+
+          var codeMirrorGutterWrapper = document.createElement("div");
+          codeMirrorGutterWrapper.setAttribute(
+            "class",
+            "CodeMirror-gutter-wrapper"
+          );
+         
+          codeMirrorGutterWrapper.setAttribute("style", `top:${top-3}px`);
+          var codeMirrorLinenumber = document.createElement("div");
+          codeMirrorLinenumber.setAttribute("class", "CodeMirror-linenumber");
+          codeMirrorLinenumber.innerHTML=count++
+          codeMirrorGutterWrapper.appendChild(codeMirrorLinenumber)
+          codeNumberFragement.appendChild(codeMirrorGutterWrapper)
+        }
+        codeMirrorGutters.appendChild(codeNumberFragement)
+
+        codeLineNumber = e.target.children.length;
+      } else {
+        console.log("行數没有变化");
+      }
+
+      //codeline
+      // console.log(html)
+    });
+    editorCode.addEventListener("click", (e) => {
+      // console.log(e);
+      if (e.target.nodeName == "DIV") {
+        e.target;
+      }
+    });
+    editorCode.addEventListener("keydown", (e) => {
+      if (e.keyCode === 9) {
+        e.preventDefault();
+        //缩进
+      }
+    });
+  </script>
+</html>

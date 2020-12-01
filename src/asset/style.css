@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: #111111;
+  font-weight: 400;
+  margin-top: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+dl {
+  padding-bottom: 11px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 54px;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 42px;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid #efeaea;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+h4 {
+  font-size: 21px;
+  line-height: 26px;
+}
+
+h5 {
+  font-size: 18px;
+  list-style: 23px;
+}
+
+a {
+  color: #0099ff;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ff6600;
+}
+
+ul,
+ol {
+  padding: 0;
+  padding-left: 24px;
+  margin: 0;
+}
+
+li {
+  line-height: 24px;
+}
+
+ul,
+ol {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+
+ol ol,
+ul ol {
+  list-style-type: decimal;
+}
+
+
+table {
+  *border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  overflow: auto;
+  border-radius: 5px;
+  border: solid #ccc 2px;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+table tr:hover {
+  background: #fcecaf;
+  transition: all 0.1s ease-in-out;
+}
+
+table td,
+table th {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+}
+
+table th {
+  font-weight: 700;
+  border-top: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+tr:nth-child(2n) {
+  background-color: #ebe9e9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(119, 119, 119);
+  border-radius: 8px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(201, 201, 202);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(162, 162, 163);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.iconfont {
+  font-size: 18px;
+}
+.toolbar {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background: #fff;
+}
+.toolbar-container {
+  padding: 4px 8px;
+  height: 100%;
+}
+.toolbar-menu {
+  height: 100%;
+  list-style: none;
+}
+.toolbar-menu > li {
+  width: 40px;
+  display: table-cell;
+}
+.toolbar-menu > li.divider {
+  display: table-cell;
+  margin: 0 5px;
+  width: 0px;
+  border-right: 1px solid #ddd;
+}
+.toolbar-menu > li > a {
+  outline: 0;
+  color: #666;
+  display: block;
+  min-width: 24px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  padding: 3px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  transition: all 300ms ease-out;
+}
+.toolbar-menu > li > a {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+}
+.toolbar-menu > li > a.active,
+.toolbar-menu > li > a:hover {
+  border: 1px solid #ddd;
+  background: #eee;
+  cursor: pointer;
+}
+.toolbar-menu > li > a > .editormd-bold {
+  padding: 5px 2px;
+  display: inline-block;
+  font-weight: 700;
+}
+.toolbar-menu > li + li > a {
+  margin-left: 3px;
+}
+.layout {
+  width: 100%;
+  display: flex;
+  top: 45px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: hidden;
+  border-top: 0.0625rem solid #ddd;
+}
+
+.preview {
+  flex: 1;
+  border-radius: 1px;
+  overflow-y: scroll;
+  border-left: transparent;
+}
+
+.editor-view {
+  flex: 1;
+  border-radius: 1px;
+  border-right: transparent;
+  overflow-y: scroll;
+  display: flex;
+}
+.editor-code {
+  width: 100%;
+}
+.editor-lines {
+  flex: 1;
+  padding-left: 5px;
+  outline: none;
+}
+.editor-lines:hover {
+  cursor: text;
+}
+.editor-line {
+  width: 100%;
+  min-height: 24px;
+  font-size: 16px;
+  padding: 2px 0;
+  word-break: break-all;
+}
+/* .editor-line:focus {
+  background-color: green;
+} */
+
+.CodeMirror-gutter-wrapper {
+  border-top: #ddd;
+  height: 22px;
+  font-size: 16px;
+  margin: 3px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.CodeMirror-gutters {
+  background-color: #ddd;
+  position: relative;
+  left: 0;
+  top: 0;
+  min-width: 50px;
+  -webkit-user-select: none; /* Chrome / Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+.CodeMirror-linenumber {
+  height: 22px;
+  line-height: 22px;
+  font-size: 12px;
+  color: rgb(104, 104, 104);
+}
+.active {
+  background: antiquewhite;
+  box-shadow: -5px 0px 0 0px antiquewhite;
+}
+
+::selection {
+  background: orange;
+  color: white;
+}
+::-moz-selection {
+  background: orange;
+  color: white;
+}
+
+.cursors {
+  position: absolute;
+  min-height: 24px;
+  padding: 2px 0;
+}
